@@ -22,9 +22,9 @@ You can view it here: [🔗 Portfolio Website](https://username.github.io/portfo
 
 ## 📬 Contact
 If you'd like to collaborate or get in touch, you can contact me via:
-- **Email:** your.email@example.com
-- **LinkedIn:** [Your LinkedIn](https://linkedin.com/in/username)
-- **GitHub:** [Your GitHub](https://github.com/username)
+- **Email:** raffi652009@gmail.com
+- **LinkedIn:** [Who is 65](https://linkedin.com/in/username)
+- **GitHub:** [Who is 65](https://github.com/whois65)
 
 ---
 
