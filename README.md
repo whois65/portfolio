@@ -23,8 +23,8 @@ You can view it here: [🔗 Portfolio Website](https://whois65.github.io/portfol
 ## 📬 Contact
 If you'd like to collaborate or get in touch, you can contact me via:
 - **Email:** raffi652009@gmail.com
-- **LinkedIn:** [Who is 65](https://linkedin.com/in/username)
-- **GitHub:** [Who is 65](https://github.com/whois65)
+- **LinkedIn:** [whois65](https://linkedin.com/in/username)
+- **GitHub:** [whois65](https://github.com/whois65)
 
 ---
 
