@@ -1,97 +1,188 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>404 — Page not found</title>
-  <meta name="theme-color" content="#0f172a" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 | Access Denied</title>
   <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#071029; --card:#0b1220; --accent:#7c3aed; --muted:#9aa8bf; --glass: rgba(255,255,255,0.04);--glass-2: rgba(255,255,255,0.03);--shadow: 0 10px 30px rgba(2,6,23,0.6);--radius:18px;}
-html,body{height:100%}
-body{font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;background: radial-gradient(1200px 600px at 10% 20%, rgba(124,58,237,0.12), transparent),radial-gradient(1000px 500px at 90% 80%, rgba(14,165,233,0.06), transparent),var(--bg);color: #e6eef8;-webkit-font-smoothing:antialiased;display:flex;align-items:center;justify-content:center;padding:32px;}.wrap{width:100%;max-width:1100px;background:linear-gradient(180deg,var(--card), rgba(5,10,20,0.6));border-radius:22px;padding:36px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;backdrop-filter: blur(6px);}
-@media (max-width:880px){.wrap{grid-template-columns:1fr; padding:24px}}
-.left{padding:12px 6px;}
-.eyebrow{display:inline-block;padding:6px 12px;background:var(--glass);border-radius:999px;color:var(--accent);font-weight:600;margin-bottom:18px;text-align:center}
-h1{font-size:56px;line-height:1;letter-spacing:-1px;margin-bottom:12px}
-@media (max-width:520px){h1{font-size:40px}}
-p.lead{color:var(--muted);margin-bottom:18px;font-size:16px}
-.actions{display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border:1px solid var(--glass-2);cursor:pointer;text-decoration:none;color:inherit;font-weight:600}
-.btn.primary{background:linear-gradient(180deg,var(--accent), #5b21b6);box-shadow:0 8px 24px rgba(124,58,237,0.18);color:white}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
-.search{margin-top:20px;display:flex;gap:10px;max-width:540px}
-.search input{flex:1;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.02);color:inherit}
-.search button{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:700;cursor:pointer}
-.right{display:flex;align-items:center;justify-content:center}
-.robot{width:100%;max-width:380px;height:380px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
-.robot svg{width:260px;height:260px;display:block}
-.tiny-meta{margin-top:16px;color:var(--muted);font-size:13px}
-.robot .float{animation:float 5s ease-in-out infinite}
-@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
-.dot{position:absolute;border-radius:999px;opacity:0.9}
-.dot.a{width:12px;height:12px;background:rgba(99,102,241,0.85);left:18%;top:6%}
-.dot.b{width:8px;height:8px;background:rgba(14,165,233,0.9);right:12%;bottom:8%}
-.dot.c{width:10px;height:10px;background:rgba(236,72,153,0.88);left:6%;bottom:18%}
-footer{margin-top:18px;color:var(--muted);font-size:13px}
-.code-hint{margin-top:14px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono";font-size:13px;color:var(--muted)}
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000;
+      color: #39ff14;
+      font-family: "Courier New", monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Canvas untuk efek hujan kode */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    h1 {
+      font-size: 7rem;
+      color: #39ff14;
+      text-shadow: 0 0 20px #39ff14, 0 0 40px #39ff14, 0 0 80px #39ff14;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-3px, 2px); }
+      40% { transform: translate(3px, -2px); }
+      60% { transform: translate(-2px, 3px); }
+      80% { transform: translate(2px, -3px); }
+      100% { transform: translate(0); }
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-top: 10px;
+      color: #00ff77;
+      opacity: 0.8;
+      text-align: center;
+    }
+
+    .terminal {
+      margin-top: 20px;
+      width: 80%;
+      max-width: 600px;
+      padding: 15px;
+      border: 2px solid #00ff99;
+      border-radius: 5px;
+      background: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 20px #00ff99;
+      text-align: left;
+    }
+
+    #typewriter {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: #39ff14;
+      color: #000;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #39ff14, 0 0 40px #39ff14;
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background: #000;
+      color: #39ff14;
+      box-shadow: 0 0 40px #39ff14, 0 0 80px #39ff14;
+    }
   </style>
 </head>
 <body>
-  <main class="wrap" role="main">
-    <section class="left">
-      <div class="eyebrow">404</div>
-      <h1>Oops...</h1><p>Page not found</p>
-      <p class="lead">It seems the URL lost or doesn't exist. Don't worried — we send a finder robot ;) </p><div class="actions" role="navigation" aria-label="error 404">
-    <a class="btn primary" id="go-home" href="https://whois65.github.io/portfolio">🏠 Back to home</a>
-    <a class="btn ghost" id="report-bug" href="#">🐞 Report bugs</a>
-  </div>
-  <form class="search" onsubmit="handleSearch(event)">
-    <input id="q" type="search" placeholder="Find a page or topic in this website..." aria-label="Search site" />
-    <button type="submit">Search</button>
-  </form>
+  <!-- Efek Matrix -->
+  <canvas id="matrix"></canvas>
 
-  <footer>
-    <div class="tiny-meta">😉</div>
-  </footer>
-</section>
+  <h1>404</h1>
+  <p>ACCESS DENIED | SYSTEM BREACHED</p>
 
-<aside class="right">
-  <div class="robot" role="img" aria-label="Searching robot">
-    <span class="dot a"></span>
-    <span class="dot b"></span>
-    <span class="dot c"></span>
-    <div class="float" style="pointer-events:none">
-      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-        <defs>
-          <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stop-color="#7c3aed" stop-opacity="1"/>
-            <stop offset="100%" stop-color="#60a5fa" stop-opacity="1"/>
-          </linearGradient>
-        </defs>
-        <g transform="translate(10,6)">
-          <rect x="10" y="12" width="100" height="72" rx="14" fill="url(#g1)" opacity="0.98"></rect>
-          <rect x="28" y="30" width="64" height="40" rx="6" fill="#071029" opacity="0.85"></rect>
-          <circle cx="48" cy="50" r="6" fill="#9fb6ff"></circle>
-          <circle cx="72" cy="50" r="6" fill="#9fb6ff"></circle>
-          <rect x="44" y="62" width="24" height="6" rx="3" fill="#a3bffa"></rect>
-          <rect x="18" y="10" width="12" height="10" rx="3" fill="#c7d2fe"></rect>
-          <rect x="90" y="10" width="12" height="10" rx="3" fill="#c7d2fe"></rect>
-          <rect x="38" y="4" width="14" height="6" rx="2" fill="#fff" opacity="0.12"></rect>
-          <rect x="64" y="4" width="14" height="6" rx="2" fill="#fff" opacity="0.12"></rect>
-        </g>
-      </svg>
-    </div>
+  <div class="terminal">
+    <div id="typewriter"></div>
   </div>
-</aside>
-  </main>
- <script>
-function handleSearch(e){e.preventDefault();const q = document.getElementById('q').value.trim();if(!q) { document.getElementById('q').focus(); return }const searchUrl = '/search?q=' + encodeURIComponent(q);     location.href = searchUrl;}document.getElementById('report-bug').addEventListener('click', function (e){e.preventDefault();const subject = encodeURIComponent('Report: Page 404 found');
-      const body = encodeURIComponent('Hello, i found a URL 404: "' + location.pathname + '" in ' + new Date().toLocaleString());
-      location.href = 'mailto:raffi652009@gmail.com?subject=' + subject + '&body=' + body;
-    });
-    window.addEventListener('load', ()=>{
-      const inp = document.getElementById('q'); if(inp) inp.focus();
-    });
-  </script></body>
+
+  <button onclick="window.location.href='/'">💻 Back to Home</button>
+
+  <script>
+    /* ================================
+       Efek Matrix Hujan Kode
+    ================================= */
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = "01";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#39ff14";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 35);
+
+    /* ================================
+       Typewriter + Beep Effect
+    ================================= */
+    const textLines = [
+      "[INFO] Initializing system scan...",
+      "[INFO] Searching for missing page...",
+      "[ERROR] Page not found on this server!",
+      "[WARNING] Unauthorized access detected!",
+      "[INFO] Sending user back to safe zone..."
+    ];
+
+    const typewriter = document.getElementById("typewriter");
+    let line = 0, char = 0;
+
+    function beep() {
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioCtx.createOscillator();
+      oscillator.type = "square";
+      oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
+      oscillator.connect(audioCtx.destination);
+      oscillator.start();
+      oscillator.stop(audioCtx.currentTime + 0.05);
+    }
+
+    function type() {
+      if (line < textLines.length) {
+        if (char < textLines[line].length) {
+          typewriter.textContent += textLines[line].charAt(char);
+          char++;
+          beep();
+          setTimeout(type, 50);
+        } else {
+          typewriter.textContent += "\n";
+          char = 0;
+          line++;
+          setTimeout(type, 500);
+        }
+      }
+    }
+    type();
+  </script>
+</body>
 </html>
