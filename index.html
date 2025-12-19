@@ -42,10 +42,6 @@
             color: var(--text);
         }
 
-        section {
-            animation: fadeUp .8s ease both;
-        }
-
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -136,47 +132,6 @@
             transition: .3s;
         }
 
-        /* ===== MOBILE NAV ===== */
-        body {
-            overflow-x: hidden;
-        }
-
-        @media (max-width: 700px) {
-            .logo {
-                font-size: 23px;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 50px;
-                right: 0;
-                transform: translateX(100%);
-                width: 100%;
-                height: 100vh;
-                background: #0b0f1af2;
-                backdrop-filter: blur(14px);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 28px;
-                transition: .4s ease;
-            }
-
-            .nav-links a {
-                font-size: 1.1rem;
-            }
-
-            .nav-links.active {
-                transform: translateX(0);
-            }
-
-            .hamburger {
-                display: flex;
-            }
-        }
-
-
         /* ===== LAYOUT ===== */
         .container {
             max-width: 1100px;
@@ -185,6 +140,7 @@
         }
 
         section {
+            animation: fadeUp .8s ease both;
             margin-bottom: 90px
         }
 
@@ -284,8 +240,8 @@
             transform: translateY(-4px);
             border-color: var(--accent);
             box-shadow:
-                0 8px 30px rgba(0, 0, 0, .45),
-                0 0 0 1px rgba(79, 209, 197, .2);
+                0 8px 30px #0007,
+                0 0 0 1px #4fd1c533;
         }
 
         .btn:hover::before {
@@ -301,7 +257,7 @@
         .btn.primary {
             background: linear-gradient(135deg,
                     var(--accent),
-                    rgba(79, 209, 197, .75));
+                    #4fd1c5bf);
             color: #020617;
             font-weight: 600;
             border: none;
@@ -376,6 +332,22 @@
             position: relative;
             overflow: hidden;
         }
+
+        .project::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left,
+                    rgba(79, 209, 197, .15),
+                    transparent 60%);
+            opacity: 0;
+            transition: .3s;
+        }
+
+        .project:hover::before {
+            opacity: 1;
+        }
+
 
         .project::after {
             content: "Click for details";
@@ -496,7 +468,41 @@
         }
 
         /* ===== MOBILE FIX ===== */
-        @media (max-width: 600px) {
+        /* ===== MOBILE NAV ===== */
+        @media (max-width: 700px) {
+            .logo {
+                font-size: 23px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 50px;
+                right: 0;
+                transform: translateX(100%);
+                width: 100%;
+                height: 100vh;
+                background: #0b0f1af2;
+                backdrop-filter: blur(14px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 28px;
+                transition: .4s ease;
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
 
             /* container */
             .container {
@@ -635,7 +641,6 @@
                 Technologies I have used in personal projects and learning experiments.
             </p>
             <div class="skills">
-                <div class="skill"><small>learning</small></div>
                 <div class="skill"><i class="devicon-c-plain"></i>
                     <div>C</div>
                 </div>
@@ -819,15 +824,21 @@
 
     <script>
         function toggleMenu() {
-            document.getElementById("navLinks").classList.toggle("active");
+            const nav = document.getElementById("navLinks");
+            nav.classList.toggle("active");
         }
 
-        // auto close menu on click (UX++)
         document.querySelectorAll(".nav-links a").forEach(link => {
             link.addEventListener("click", () => {
                 document.getElementById("navLinks").classList.remove("active");
+                document.body.style.overflow = "auto";
             });
         });
+
+        const modal = document.getElementById("modal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalText = document.getElementById("modalText");
+
 
         const data = {
             snake: [
@@ -840,11 +851,11 @@
             ],
             md: [
                 "Markdown Viewer",
-                "A lightweight Markdown viewer built with HTML, CSS, and JavaScript. Designed to render Markdown content in real time while maintaining a clean and responsive interface.<br><button class='btn primary'><a href='https://whois65.github.io/md-viewer' target='_blank'>See Project</a></button>"
+                "A lightweight Markdown viewer built with HTML, CSS, and JavaScript. Designed to render Markdown content in real time while maintaining a clean and responsive interface.<br><a class='btn primary' href='https://whois65.github.io/md-viewer' target='_blank'>See Project</a>"
             ],
             web: [
                 "English Dictionary",
-                "A simple English dictionary web application built using HTML, CSS, and JavaScript. Focused on word lookup functionality, usability, and a responsive layout. <br><button class='btn primary'><a href='https://whois65.github.io/projects/Dictionary.html' target='_blank'>See Project</a></button>"
+                "A simple English dictionary web application built using HTML, CSS, and JavaScript. Focused on word lookup functionality, usability, and a responsive layout. <br><a class='btn primary' href='https://whois65.github.io/projects/Dictionary.html' target='_blank'>See Project</a>"
             ]
 
         };
@@ -853,8 +864,18 @@
             modal.style.display = "flex";
             modalTitle.innerHTML = data[key][0];
             modalText.innerHTML = data[key][1];
+            document.body.style.overflow = "hidden";
         }
-        function closeModal() { modal.style.display = "none" }
+
+        function closeModal() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        modal.addEventListener("click", e => {
+            if (e.target === modal) closeModal();
+        });
+
     </script>
 
 </body>
