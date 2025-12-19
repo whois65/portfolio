@@ -29,15 +29,17 @@
             box-sizing: border-box
         }
 
-        html {
-            scroll-behavior: smooth
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: "JetBrains Mono", monospace;
             background: radial-gradient(circle at top, #11162a, var(--bg));
             color: var(--text);
-            overflow-x: hidden;
         }
 
         section {
