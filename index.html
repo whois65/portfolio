@@ -1,208 +1,699 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Raffiqi — Full‑Stack Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css">
-  <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
-  <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --muted:#9aa6bf; --accent1:#7c3aed; --accent2:#06b6d4;
-      --glass: rgba(255,255,255,0.04);
-      --glass-2: rgba(255,255,255,0.02);
-      --radius: 14px;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071025 0%,#071024 40%, #07102a 100%);color:#e6eef8}
-    a{color:inherit}/* Top Navigation */
-.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;backdrop-filter: blur(6px);background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);position:sticky;top:0;z-index:40}
-.brand{display:flex;gap:12px;align-items:center}
-.logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;color:white;box-shadow:0 6px 20px rgba(99,102,241,0.12)}
-.nav-links{display:flex;gap:14px;align-items:center}
-.btn{padding:8px 12px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);cursor:pointer}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raffiqi | Student Developer</title>
+    <meta name="description"
+        content="Student developer exploring low-level programming, system fundamentals, and problem solving.">
+    <meta name="author" content="Raffiqi">
+    <meta name="keywords" content="C, C++, Systems Programming, Linux, JavaScript, Developer Portfolio">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
 
-/* Hero */
-.container{max-width:1100px;margin:36px auto;padding:0 20px}
-.hero{display:grid;grid-template-columns:1fr 360px;gap:26px;align-items:center}
-.hero-card{background:linear-gradient(180deg,var(--glass),var(--glass-2));padding:28px;border-radius:18px}
-h1{margin:0;font-size:32px;line-height:1.02}
-p.lead{color:var(--muted);margin-top:10px}
-.ctas{margin-top:18px;display:flex;gap:12px}
-.cta-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 16px;border-radius:12px;border:none;color:white;font-weight:600}
-.cta-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:12px;color:var(--muted)}
+    <style>
+        :root {
+            --bg: #0b0f1a;
+            --card: rgba(255, 255, 255, 0.06);
+            --border: rgba(255, 255, 255, 0.12);
+            --text: #e6e6eb;
+            --muted: #9aa0b4;
+            --accent: #4fd1c5;
+        }
 
-/* Profile card */
-.profile{padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);display:flex;flex-direction:column;gap:12px}
-.avatar{width:100%;height:220px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#2b6cb0,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:48px;color:white}
-.skills{display:flex;flex-wrap:wrap;gap:10px}
-.skill{display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(255,255,255,0.02);border-radius:10px;font-size:13px}
-.skill img{display:block}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
 
-/* Projects */
-.projects{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-.proj-thumb{height:140px;border-radius:10px;background:linear-gradient(135deg, rgba(124,58,237,0.18), rgba(6,182,212,0.12));display:flex;align-items:center;justify-content:center;font-weight:700}
-.tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
-.tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02)}
+        html {
+            scroll-behavior: smooth
+        }
 
-/* Contact */
-.contact{margin-top:28px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
-.contact form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.contact input,.contact textarea{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
-.contact textarea{grid-column:1/ -1;min-height:120px}
+        body {
+            font-family: "JetBrains Mono", monospace;
+            background: radial-gradient(circle at top, #11162a, var(--bg));
+            color: var(--text);
+            overflow-x: hidden;
+        }
 
-/* Footer */
-footer{margin:40px 0 80px;color:var(--muted);text-align:center}
+        section {
+            animation: fadeUp .8s ease both;
+        }
 
-/* Responsive */
-@media (max-width:980px){
-  .hero{grid-template-columns:1fr;}
-  .projects{grid-template-columns:repeat(2,1fr)}
-  .nav{padding:12px}
-}
-@media (max-width:640px){
-  .projects{grid-template-columns:1fr}
-  .profile{gap:8px}
-  .avatar{height:160px}
-  .contact form{grid-template-columns:1fr}
-}
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-/* subtle animations */
-.fade-up{transform:translateY(6px);opacity:0;animation:up .6s ease-out forwards}
-@keyframes up{to{transform:none;opacity:1}}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-/* dark mode toggle */
-.toggle{display:inline-flex;align-items:center;gap:8px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02)}
 
-  </style>
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        li {
+            list-style: none;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+
+        /* ===== HEADER ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            background: rgba(11, 15, 26, .8);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--accent)
+        }
+
+        .nav a {
+            color: var(--muted);
+            margin-left: 22px;
+            font-size: .9rem
+        }
+
+        .nav a:hover {
+            color: var(--accent)
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: .7rem;
+            letter-spacing: 1px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            margin-bottom: 18px;
+            color: var(--accent);
+            border: 1px solid rgba(79, 209, 197, .4);
+            background: rgba(79, 209, 197, .08);
+        }
+
+
+        /* ===== HAMBURGER ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: .3s;
+        }
+
+        /* ===== MOBILE NAV ===== */
+        @media (max-width: 668px) {
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background: rgba(11, 15, 26, .95);
+                backdrop-filter: blur(14px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 28px;
+                transition: .4s ease;
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 90px 20px
+        }
+
+        section {
+            margin-bottom: 90px
+        }
+
+        section::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            margin-top: 80px;
+            background: linear-gradient(to right, transparent, var(--border), transparent);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -40px;
+            background: radial-gradient(circle at top left, rgba(79, 209, 197, .15), transparent 60%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            margin-bottom: 16px;
+        }
+
+        .hero span {
+            color: var(--accent)
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: var(--muted);
+            margin-bottom: 26px;
+        }
+
+        .cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 22px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            transition: .25s;
+        }
+
+        .btn.primary {
+            background: var(--accent);
+            color: #000;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        /* ===== SKILLS ===== */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 20px;
+        }
+
+        .skill {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 26px 10px;
+            text-align: center;
+            transition: .25s;
+        }
+
+        .skill small {
+            display: block;
+            margin-top: 6px;
+            font-size: .65rem;
+            color: var(--muted);
+            opacity: .8;
+        }
+
+
+        .skill i {
+            font-size: 3rem;
+            margin-bottom: 10px
+        }
+
+        .skill:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+        }
+
+
+        /* ===== PROJECTS ===== */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 26px;
+        }
+
+        .project {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 22px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project::after {
+            content: "Click for details";
+            position: absolute;
+            bottom: 16px;
+            right: 20px;
+            font-size: .7rem;
+            color: var(--muted);
+            opacity: 0;
+            transition: .3s;
+        }
+
+        .project:hover::after {
+            opacity: 1;
+        }
+
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+        }
+
+        .project h3 {
+            margin-bottom: 8px
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: .65rem;
+            padding: 4px 10px;
+            border-radius: 999px;
+            margin-bottom: 10px;
+            color: var(--accent);
+            background: rgba(79, 209, 197, .12);
+        }
+
+        /* ===== PROGRESS ===== */
+        .progress-list {
+            max-width: 700px;
+        }
+
+        .progress-item {
+            margin-bottom: 22px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: .8rem;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .08);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg,
+                    var(--accent),
+                    rgba(79, 209, 197, .6));
+            border-radius: 999px;
+            animation: loadBar 1.4s ease forwards;
+        }
+
+        @keyframes loadBar {
+            to {
+                width: var(--value);
+            }
+        }
+
+
+        /* ===== MODAL ===== */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .65);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #0f1426;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            max-width: 520px;
+            padding: 26px;
+        }
+
+        .modal h3 {
+            margin-bottom: 12px
+        }
+
+        .modal p {
+            color: var(--muted)
+        }
+
+        .close {
+            margin-top: 20px;
+            display: inline-block;
+            color: var(--accent);
+            cursor: pointer;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: .85rem;
+            padding-bottom: 20px;
+        }
+    </style>
 </head>
+
 <body>
-  <nav class="nav">
-    <div class="brand">
-      <div class="logo">R</div>
-      <div style="line-height:1">
-        <div style="font-weight:700">Raffiqi</div>
-        <div style="font-size:12px;color:var(--muted)">Full‑Stack Developer</div>
-      </div>
+
+    <header>
+        <div class="nav">
+            <div class="logo">Raffiqi</div>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#progress">Progress</a>
+                <a href="#focus">Focus</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="container">
+
+        <section id="about" class="hero">
+            <div class="badge">STUDENT DEVELOPER · LEARNING IN PUBLIC</div>
+            <h1>Hello, I'm <span>Raffiqi</span></h1>
+            <p style="color:#6f768f;font-size:.85rem;margin-bottom:12px">Grade 11 High School Student</p>
+            <p>
+                A student developer with a growing interest in low-level programming and system fundamentals.
+                Currently learning how software works beneath the surface by building small projects
+                and experimenting with performance-conscious code.
+            </p>
+
+            <div class="cta">
+                <a class="btn primary" href="#projects">View Projects</a>
+                <a class="btn" href="https://github.com/whois65" target="_blank">GitHub</a>
+            </div>
+        </section>
+
+
+        <section id="skills">
+            <h2>Currently Learning</h2>
+            <p style="color:var(--muted);max-width:600px;margin-bottom:24px">
+                Technologies I have used in personal projects and learning experiments.
+            </p>
+            <div class="skills">
+                <div class="skill"><small>learning</small></div>
+                <div class="skill"><i class="devicon-c-plain"></i>
+                    <div>C</div>
+                </div>
+                <div class="skill"><i class="devicon-cplusplus-plain"></i>
+                    <div>C++</div>
+                </div>
+                <div class="skill"><i class="devicon-javascript-plain"></i>
+                    <div>JavaScript</div>
+                </div>
+                <div class="skill"><i class="devicon-nodejs-plain"></i>
+                    <div>Nodejs</div>
+                </div>
+                <div class="skill"><i class="devicon-python-plain"></i>
+                    <div>Python</div>
+                </div>
+                <div class="skill"><i class="devicon-linux-plain"></i>
+                    <div>Linux</div>
+                </div>
+                <div class="skill"><i class="devicon-bash-plain"></i>
+                    <div>Bash</div>
+                </div>
+                <div class="skill"><i class="devicon-html5-plain"></i>
+                    <div>HTML</div>
+                </div>
+            </div>
+        </section>
+        <section id="progress">
+            <h2>Learning Progress</h2>
+            <p style="color:var(--muted);max-width:600px;margin-bottom:30px">
+                Rough progress based on topics explored and projects built. This reflects learning journey,
+                not professional mastery.
+            </p>
+
+            <div class="progress-list">
+
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>C Programming</span>
+                        <span>45%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="--value:45%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Memory & Pointers</span>
+                        <span>30%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="--value:30%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>CLI & System Tools</span>
+                        <span>35%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="--value:35%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>JavaScript Logic</span>
+                        <span>40%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="--value:40%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Linux & Shell</span>
+                        <span>50%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="--value:50%"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="interests">
+            <h2>System Interests</h2>
+            <p style="color:var(--muted);max-width:650px">
+                Areas of computer science I am actively curious about and exploring gradually.
+            </p>
+
+            <div class="skills" style="margin-top:24px">
+                <div class="skill">
+                    <div>Memory Management</div>
+                    <small>stack, heap, pointers</small>
+                </div>
+                <div class="skill">
+                    <div>Operating Systems</div>
+                    <small>process, file system</small>
+                </div>
+                <div class="skill">
+                    <div>Compilers</div>
+                    <small>parsing & execution</small>
+                </div>
+                <div class="skill">
+                    <div>Algorithms</div>
+                    <small>logic & efficiency</small>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="focus">
+            <h2>Current Focus</h2>
+            <ul style="color:var(--muted);line-height:1.9;max-width:700px">
+                <li>• Improving understanding of C fundamentals and basic memory concepts</li>
+                <li>• Practicing by building small low-level CLI programs</li>
+                <li>• Developing logical thinking and problem-solving skills</li>
+                <li>• Preparing foundations for future computer science studies</li>
+            </ul>
+        </section>
+
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project" onclick="openModal('snake')">
+                    <span class="tag">C / CLI</span>
+                    <h3>Snake & Ladder Game</h3>
+                    <p>Terminal-based learning project.</p>
+                </div>
+
+                <div class="project" onclick="openModal('cli')">
+                    <span class="tag">C / CLI</span>
+                    <h3>CLI Utilities Toolkit</h3>
+                    <p>Low-level command line tools.</p>
+                </div>
+                <div class="project" onclick="openModal('md')">
+                    <span class="tag">HTML - CSS - JavaScript</span>
+                    <h3>Markdown viewer</h3>
+                    <p>Responsive UI with JS logic.</p>
+                </div>
+                <div class="project" onclick="openModal('web')">
+                    <span class="tag">HTML - CSS - JavaScript</span>
+                    <h3>English Dictionary Website</h3>
+                    <p>Responsive UI with JS logic.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p style="color:var(--muted);max-width:600px">
+                Interested in my work or want to collaborate?
+                Feel free to reach out via GitHub or email.
+            </p>
+            <div class="cta" style="margin-top:20px">
+                <a class="btn primary" href="https://github.com/whois65" target="_blank">GitHub</a>
+                <a class="btn" href="mailto:raffi652009@gmail.com">Email Me</a>
+            </div>
+        </section>
+
+
+        <footer>
+            Built with curiosity, learning, and a lot of trial and error<br>
+            © 2025 Raffiqi
+        </footer>
+
     </div>
-    <div class="nav-links">
-      <div class="btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Projects</div>
-      <div class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</div>
-      <div class="toggle btn" id="themeToggle">🌙</div>
-    </div>
-  </nav>
-  <main class="container">
-    <section class="hero">
-      <div class="hero-card">
-        <h1 class="fade-up">Hey, I'm <span style="background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;">Raffiqi</span> — Full‑Stack Dev</h1>
-        <p class="lead">I build clean, efficient web apps and love turning ideas into pixel‑perfect reality. Currently focusing on backend systems, interactive frontends, and leveling up my algorithms skills.</p>
-        <div class="ctas">
-          <a class="cta-primary" href="#projects">See Projects</a>
-          <a class="cta-ghost" href="https://github.com/whois65" target="_blank">GitHub</a>
-        </div><div style="margin-top:20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-      <!-- GitHub stats -->
-      <img src="https://github-readme-stats.vercel.app/api?username=whois65&show_icons=true&theme=tokyonight" style="height:60px;border-radius:8px;" alt="github stats"/>
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=whois65&layout=compact&theme=tokyonight" style="height:60px;border-radius:8px;" alt="top langs"/>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle"></h3>
+            <p id="modalText"></p>
+            <div class="close" onclick="closeModal()">Close</div>
+        </div>
     </div>
 
-  </div>
+    <script>
+        function toggleMenu() {
+            document.getElementById("navLinks").classList.toggle("active");
+        }
 
-  <aside class="profile">
-    <div class="avatar">R</div>
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <div>
-        <div style="font-weight:700">Raffiqi</div>
-        <div style="font-size:12px;color:var(--muted)">Full‑Stack | Competitive Programming | ML beginner</div>
-      </div>
-      <div style="display:flex;gap:8px;align-items:center">
-        <a href="https://linkedin.com/whois65" class="btn">LinkedIn</a>
-        <a href="mailto:raffi652009@gmail.com" class="btn">Email<a>
-      </div>
-    </div>
+        // auto close menu on click (UX++)
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                document.getElementById("navLinks").classList.remove("active");
+            });
+        });
 
-    <div>
-      <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Tech & Languages</div>
-      <div class="skills">
-        <div class="skill"><i class="devicon-html5-plain colored" style="font-size:20px"></i> HTML5</div>
-        <div class="skill"><i class="devicon-css3-plain colored" style="font-size:20px"></i> CSS3</div>
-        <div class="skill"><i class="devicon-javascript-plain colored" style="font-size:20px"></i> JavaScript</div>
-        <div class="skill"><i class="devicon-python-plain colored" style="font-size:20px"></i> Python</div>
-        <div class="skill"><i class="devicon-cplusplus-plain colored" style="font-size:20px"></i> C++</div>
-        <div class="skill"><img src="https://img.shields.io/badge/Pascal-008080?style=for-the-badge&logo=delphi&logoColor=white" height="22" alt="Pascal"/></div>
-        <div class="skill"><i class="devicon-mysql-plain colored" style="font-size:18px"></i> MySQL</div>
-        <div class="skill"><i class="devicon-linux-plain colored" style="font-size:18px"></i> Linux</div>
-      </div>
-    </div>
-  </aside>
-</section>
+        const data = {
+            snake: [
+                "Snake & Ladder Game (C)",
+                "<p>Terminal-based board game built in C to practice structs, game state logic, and randomization.</p> Built as a learning project to practice structs, board mapping, random dice generation, and basic state-based game flow"
+            ],
+            cli: [
+                "CLI Utilities Toolkit",
+                "<p>A collection of command-line tools focused on file processing, text analysis, and efficient I/O.</p> Created as learning exercises to better understand low-level I/O, pointers, and writing more efficient C programs."
+            ],
+            md: [
+                "Markdown Viewer",
+                "A lightweight Markdown viewer built with HTML, CSS, and JavaScript. Designed to render Markdown content in real time while maintaining a clean and responsive interface. Visit <a href='https://whois65.github.io/md-viewer' target='_blank'>here</a>."
+            ],
+            web: [
+                "English Dictionary",
+                "A simple English dictionary web application built using HTML, CSS, and JavaScript. Focused on word lookup functionality, usability, and a responsive layout. Visit <a href='https://whois65.github.io/projects/Dictionary.html' target='_blank'>here</a>."
+            ]
 
-<section id="projects" style="margin-top:22px">
-  <h2 style="margin:0 0 12px 0">Projects</h2>
-  <div class="projects">
-    <div class="card">
-      <div class="proj-thumb">Awesome Todo App</div>
-      <div style="margin-top:10px;font-weight:700">Todo App with offline mode</div>
-      <div class="tags">
-        <span class="tag">PWA</span>
-        <span class="tag">Vanilla JS</span>
-        <span class="tag">IndexedDB</span>
-      </div>
-      <div style="margin-top:12px;display:flex;gap:8px">
-        <a class="btn" href="#">Live</a>
-        <a class="btn" href="#">Code</a>
-      </div>
-    </div>
+        };
 
-    <div class="card">
-      <div class="proj-thumb">Flask API</div>
-      <div style="margin-top:10px;font-weight:700">REST API for study planner</div>
-      <div class="tags">
-        <span class="tag">Flask</span>
-        <span class="tag">Docker</span>
-        <span class="tag">MySQL</span>
-      </div>
-      <div style="margin-top:12px;display:flex;gap:8px">
-        <a class="btn" href="#">Docs</a>
-        <a class="btn" href="#">Code</a>
-      </div>
-    </div>
+        function openModal(key) {
+            modal.style.display = "flex";
+            modalTitle.innerHTML = data[key][0];
+            modalText.innerHTML = data[key][1];
+        }
+        function closeModal() { modal.style.display = "none" }
+    </script>
 
-    <div class="card">
-      <div class="proj-thumb">Competitive Toolkit</div>
-      <div style="margin-top:10px;font-weight:700">C++ algorithms & templates</div>
-      <div class="tags">
-        <span class="tag">C++</span>
-        <span class="tag">Templates</span>
-        <span class="tag">CLI</span>
-      </div>
-      <div style="margin-top:12px;display:flex;gap:8px">
-        <a class="btn" href="#">Code</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <h3 style="margin:0 0 8px 0">Contact</h3>
-  <p style="color:var(--muted);margin:0 0 12px 0">Want to collaborate or just say hi? Drop a message.</p>
-  <form onsubmit="event.preventDefault();window.location='mailto:raffi652009@gmail.com?subject='+encodeURIComponent(document.getElementById('subj').value)+'&body='+encodeURIComponent(document.getElementById('msg').value)">
-    <input id="name" placeholder="Your name" required />
-    <input id="subj" placeholder="Subject" required />
-    <textarea id="msg" placeholder="Message" required></textarea>
-    <button class="cta-primary" type="submit">Send</button>
-  </form>
-</section>
-
-<footer>
-  <span style="color:var(--muted)">Built by Raffiqi</span>
-</footer>
-</main>
-<script src="script.js"></script>
 </body>
+
 </html>
