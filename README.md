@@ -18,7 +18,7 @@ The site is fully responsive, modern, and optimized for performance.
 
 ## Deployment
 This project is hosted using **GitHub Pages**.  
-You can view it here: [🔗 Portfolio Website](https://whois65.github.io/portfolio/)
+You can view it here: [ Portfolio Website](https://whois65.github.io/portfolio/)
 
 ## Contact
 If you'd like to collaborate or get in touch, you can contact me via:
