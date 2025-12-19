@@ -8,15 +8,16 @@
     <meta name="description"
         content="Student developer exploring low-level programming, system fundamentals, and problem solving.">
     <meta name="author" content="Raffiqi">
-    <meta name="keywords" content="C, C++, Systems Programming, Linux, JavaScript, Developer Portfolio, Muhammad Raffiqi, Raffiqi">
+    <meta name="keywords"
+        content="C, C++, Systems Programming, Linux, JavaScript, Developer Portfolio, Muhammad Raffiqi, Raffiqi">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --bg: #0b0f1a;
-            --card: rgba(255, 255, 255, 0.06);
-            --border: rgba(255, 255, 255, 0.12);
+            --card: #ffffff0f;
+            --border: #ffffff1f;
             --text: #e6e6eb;
             --muted: #9aa0b4;
             --accent: #4fd1c5;
@@ -490,6 +491,94 @@
             font-size: .85rem;
             padding-bottom: 20px;
         }
+
+        /* ===== MOBILE FIX ===== */
+        @media (max-width: 600px) {
+
+            /* container */
+            .container {
+                padding: 60px 16px;
+            }
+
+            section {
+                margin-bottom: 60px;
+            }
+
+            section::after {
+                margin-top: 50px;
+            }
+
+            /* hero */
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: .85rem;
+            }
+
+            .badge {
+                font-size: .6rem;
+            }
+
+            /* buttons */
+            .cta {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                text-align: center;
+                width: 100%;
+            }
+
+            /* skills grid */
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+
+            .skill {
+                padding: 18px 8px;
+            }
+
+            .skill i {
+                font-size: 2.2rem;
+            }
+
+            /* projects grid */
+            .projects {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            /* progress */
+            .progress-label {
+                font-size: .7rem;
+            }
+
+            /* modal */
+            .modal-content {
+                width: 90%;
+                max-width: none;
+                padding: 20px;
+            }
+
+            footer {
+                font-size: .7rem;
+                line-height: 1.6;
+            }
+        }
+
+        @media (hover: none) {
+
+            .btn:hover,
+            .project:hover,
+            .skill:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
     </style>
 </head>
 
@@ -521,7 +610,7 @@
     <div class="container">
 
         <section id="about" class="hero">
-            <div class="badge">STUDENT DEVELOPER · LEARNING IN PUBLIC</div>
+            <div class="badge">STUDENT DEVELOPER</div>
             <h1>Hello, I'm <span>Raffiqi</span></h1>
             <p style="color:#6f768f;font-size:.85rem;margin-bottom:12px">Grade 11 High School Student</p>
             <p>
