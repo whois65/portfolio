@@ -9,7 +9,7 @@
         content="Student developer exploring low-level programming, system fundamentals, and problem solving.">
     <meta name="author" content="Raffiqi">
     <meta name="keywords"
-        content="C, C++, Systems Programming, Linux, JavaScript, Developer Portfolio, Muhammad Raffiqi, Raffiqi">
+        content="C, C++, Systems Programming, Linux, JavaScript, Developer Portfolio, Muhammad Raffiqi, Raffiqi, Programmer, Developer, Website Developer">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -21,15 +21,39 @@
             --text: #e6e6eb;
             --muted: #9aa0b4;
             --accent: #4fd1c5;
+            --header-bg: #0b0f1acc;
+            --modal-bg: #0b0f1af2;
+        }
+
+        /* ===== LIGHT MODE ===== */
+        :root[data-theme="light"] {
+            --bg: #f6f7fb;
+            --card: #ffffff;
+            --border: #00000014;
+            --text: #1a1c2b;
+            --muted: #5f6377;
+            --accent: #4fd1c5;
+            --header-bg: #ffffffcc;
+            --modal-bg: #f7f7f7f2;
+        }
+
+        :root[data-theme="light"] body {
+            background: radial-gradient(circle at top, #ffffff, var(--bg));
         }
 
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            transition: background-color .25s ease,
+                color .25s ease,
+                border-color .25s ease;
         }
 
         html,
         body {
+            width: 100%;
+            overflow-x: hidden;
             max-width: 100%;
             scroll-behavior: smooth;
         }
@@ -38,7 +62,6 @@
             font-family: "JetBrains Mono", monospace;
             background: radial-gradient(circle at top, #11162a, var(--bg));
             color: var(--text);
-            overflow-x: hidden;
         }
 
         @keyframes fadeUp {
@@ -51,6 +74,13 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 12px;
         }
 
         a {
@@ -68,21 +98,20 @@
 
         /* ===== HEADER ===== */
         header {
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            height: 64px;
+            width: 100%;
+            z-index: 1000;
             backdrop-filter: blur(12px);
-            background: #0b0f1acc;
+            background: var(--header-bg);
             border-bottom: 1px solid var(--border);
-        }
-
-        .nav {
-            max-width: 1100px;
-            margin: auto;
             padding: 14px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 6px 20px #0006;
         }
 
         .logo {
@@ -91,13 +120,14 @@
             color: var(--accent)
         }
 
-        .nav a {
+        header a,
+        header button {
             color: var(--muted);
             margin-left: 22px;
             font-size: .9rem
         }
 
-        .nav a:hover {
+        header a:hover {
             color: var(--accent)
         }
 
@@ -109,9 +139,15 @@
             border-radius: 999px;
             margin-bottom: 18px;
             color: var(--accent);
-            border: 1px solid rgba(79, 209, 197, .4);
-            background: rgba(79, 209, 197, .08);
+            border: 1px solid #4fd1c566;
+            background: #4fd1c514;
         }
+
+        #themeToggle {
+            font-size: 0.8rem;
+            padding: 8px 12px;
+        }
+
 
         /* ===== HAMBURGER ===== */
         .hamburger {
@@ -132,12 +168,14 @@
         .container {
             max-width: 1100px;
             margin: auto;
-            padding: 90px 20px
+            padding: 120px 20px;
+            /* sebelumnya 90px */
         }
 
         section {
             animation: fadeUp .8s ease both;
-            margin-bottom: 90px
+            margin-bottom: 90px;
+            scroll-margin-top: 90px;
         }
 
         section::after {
@@ -149,12 +187,6 @@
             background: linear-gradient(to right, transparent, var(--border), transparent);
         }
 
-        h2 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--accent);
-            padding-left: 12px;
-        }
 
         /* ===== HERO ===== */
         .hero {
@@ -193,74 +225,53 @@
         /* ===== BUTTONS ===== */
         .btn {
             position: relative;
-            padding: 12px 26px;
+            padding: 12px 20px;
             border-radius: 999px;
             font-size: .85rem;
             font-weight: 500;
             letter-spacing: .3px;
-
             color: var(--text);
-            background: linear-gradient(135deg,
-                    rgba(255, 255, 255, .08),
-                    rgba(255, 255, 255, .02));
-
+            background: linear-gradient(135deg, #ffffff14, #ffffff05);
             border: 1px solid var(--border);
             backdrop-filter: blur(8px);
-
-            transition:
-                transform .25s ease,
-                box-shadow .25s ease,
-                border-color .25s ease,
-                background .25s ease;
-
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
             cursor: pointer;
             overflow: hidden;
         }
 
-        /* glow line effect */
         .btn::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(120deg,
-                    transparent,
-                    rgba(79, 209, 197, .25),
-                    transparent);
+            background: linear-gradient(120deg, transparent, rgba(79, 209, 197, .25), transparent);
             opacity: 0;
             transition: opacity .3s;
         }
 
-        /* hover */
         .btn:hover {
             transform: translateY(-4px);
             border-color: var(--accent);
-            box-shadow:
-                0 8px 30px #0007,
-                0 0 0 1px #4fd1c533;
+            box-shadow: 0 8px 30px #0007, 0 0 0 1px #4fd1c533;
         }
 
         .btn:hover::before {
             opacity: 1;
         }
 
-        /* active */
         .btn:active {
             transform: translateY(-1px);
         }
 
         /* ===== PRIMARY BUTTON ===== */
         .btn.primary {
-            background: linear-gradient(135deg,
-                    var(--accent),
-                    #4fd1c5bf);
+            background: linear-gradient(135deg, var(--accent), #4fd1c5bf);
             color: #020617;
             font-weight: 600;
             border: none;
         }
 
         .btn.primary:hover {
-            box-shadow:
-                0 10px 35px rgba(79, 209, 197, .35);
+            box-shadow: 0 10px 35px #4fd1c559;
         }
 
         /* ===== ICON BUTTON (optional future use) ===== */
@@ -329,15 +340,14 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at top left,
-                    rgba(79, 209, 197, .15),
-                    transparent 60%);
+            background: radial-gradient(circle at top left, #4fd1c526, transparent 60%);
             opacity: 0;
             transition: .3s;
         }
 
-        .project:hover::before {
-            opacity: 1;
+        .project:hover::before,
+        .project:hover::after {
+            opacity: 1
         }
 
         .project::after {
@@ -349,10 +359,6 @@
             color: var(--muted);
             opacity: 0;
             transition: .3s;
-        }
-
-        .project:hover::after {
-            opacity: 1;
         }
 
         .project:hover {
@@ -376,7 +382,7 @@
 
         /* ===== PROGRESS ===== */
         .progress-list {
-            max-width: 700px;
+            max-width: 700px
         }
 
         .progress-item {
@@ -419,14 +425,14 @@
         .modal {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, .65);
+            background: var(--modal-bg);
             display: none;
             align-items: center;
             justify-content: center;
         }
 
         .modal-content {
-            background: #0f1426;
+            background: var(--card);
             border: 1px solid var(--border);
             border-radius: 20px;
             max-width: 520px;
@@ -456,36 +462,45 @@
             padding-bottom: 20px;
         }
 
-        /* ===== MOBILE FIX ===== */
-        /* ===== MOBILE NAV ===== */
+        /* ===== MOBILE ===== */
         @media (max-width: 700px) {
             .logo {
                 font-size: 23px;
             }
 
-            .nav-links {
-                position: fixed;
-                top: 50px;
-                right: 0;
-                transform: translateX(100%);
-                width: 100%;
-                height: 100vh;
-                background: #0b0f1af2;
-                backdrop-filter: blur(14px);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 28px;
-                transition: .4s ease;
+            .hero::before {
+                inset: -10px;
+            }
+
+            @media (max-width: 700px) {
+                .nav-links {
+                    position: fixed;
+                    top: 64px;
+                    left: 0;
+                    width: 100%;
+                    height: calc(100dvh - 64px);
+
+                    background: var(--modal-bg);
+                    backdrop-filter: blur(14px);
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 28px;
+
+                    transform: translateX(100%);
+                    transition: transform .35s ease;
+                    z-index: 999;
+                }
+
+                .nav-links.active {
+                    transform: translateX(0);
+                }
             }
 
             .nav-links a {
                 font-size: 1.1rem;
-            }
-
-            .nav-links.active {
-                transform: none;
             }
 
             .hamburger {
@@ -521,12 +536,12 @@
             /* buttons */
             .cta {
                 flex-direction: column;
-                align-items: stretch;
+                align-items: stretch
             }
 
             .btn {
                 text-align: center;
-                width: 90%;
+                width: 100%
             }
 
             /* skills grid */
@@ -577,27 +592,22 @@
 </head>
 
 <body>
-
     <header>
-        <div class="nav">
-            <div class="logo">Raffiqi</div>
-
-            <div class="nav-links" id="navLinks">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#progress">Progress</a>
-                <a href="#focus">Focus</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
-
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+        <div class="logo">Raffiqi</div>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#progress">Progress</a>
+            <a href="#focus">Focus</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <button class="btn icon" id="themeToggle" title="Toggle theme">dark mode</button>
         </div>
-
+        <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
 
     <div class="container">
@@ -624,30 +634,14 @@
                 Technologies I have used in personal projects and learning experiments.
             </p>
             <div class="skills">
-                <div class="skill"><i class="devicon-c-plain"></i>
-                    <div>C</div>
-                </div>
-                <div class="skill"><i class="devicon-cplusplus-plain"></i>
-                    <div>C++</div>
-                </div>
-                <div class="skill"><i class="devicon-javascript-plain"></i>
-                    <div>JavaScript</div>
-                </div>
-                <div class="skill"><i class="devicon-nodejs-plain"></i>
-                    <div>Nodejs</div>
-                </div>
-                <div class="skill"><i class="devicon-python-plain"></i>
-                    <div>Python</div>
-                </div>
-                <div class="skill"><i class="devicon-linux-plain"></i>
-                    <div>Linux</div>
-                </div>
-                <div class="skill"><i class="devicon-bash-plain"></i>
-                    <div>Bash</div>
-                </div>
-                <div class="skill"><i class="devicon-html5-plain"></i>
-                    <div>HTML</div>
-                </div>
+                <div class="skill"><i class="devicon-c-plain"></i><div>C</div></div>
+                <div class="skill"><i class="devicon-cplusplus-plain"></i><div>C++</div></div>
+                <div class="skill"><i class="devicon-javascript-plain"></i><div>JavaScript</div></div>
+                <div class="skill"><i class="devicon-nodejs-plain"></i><div>Nodejs</div></div>
+                <div class="skill"><i class="devicon-python-plain"></i><div>Python</div></div>
+                <div class="skill"><i class="devicon-linux-plain"></i><div>Linux</div></div>
+                <div class="skill"><i class="devicon-bash-plain"></i><div>Bash</div></div>
+                <div class="skill"><i class="devicon-html5-plain"></i><div>HTML</div></div>
             </div>
         </section>
         <section id="progress">
@@ -657,59 +651,7 @@
                 not professional mastery.
             </p>
 
-            <div class="progress-list">
-
-                <div class="progress-item">
-                    <div class="progress-label">
-                        <span>C Programming</span>
-                        <span>45%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="--value:45%"></div>
-                    </div>
-                </div>
-
-                <div class="progress-item">
-                    <div class="progress-label">
-                        <span>Memory & Pointers</span>
-                        <span>30%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="--value:30%"></div>
-                    </div>
-                </div>
-
-                <div class="progress-item">
-                    <div class="progress-label">
-                        <span>CLI & System Tools</span>
-                        <span>35%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="--value:35%"></div>
-                    </div>
-                </div>
-
-                <div class="progress-item">
-                    <div class="progress-label">
-                        <span>JavaScript Logic</span>
-                        <span>40%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="--value:40%"></div>
-                    </div>
-                </div>
-
-                <div class="progress-item">
-                    <div class="progress-label">
-                        <span>Linux & Shell</span>
-                        <span>50%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="--value:50%"></div>
-                    </div>
-                </div>
-
-            </div>
+            <div class="progress-list"></div>
         </section>
 
         <section id="interests">
@@ -772,6 +714,11 @@
                     <h3>English Dictionary Website</h3>
                     <p>Responsive UI with JS logic.</p>
                 </div>
+                <div class="project" onclick="openModal('lib')">
+                    <span class="tag">HTML - CSS - JavaScript</span>
+                    <h3>School Library Website</h3>
+                    <p>Responsive UI with JS logic.</p>
+                </div>
             </div>
         </section>
 
@@ -803,57 +750,98 @@
     </div>
 
     <script>
+        const qi = x => document.getElementById(x),
+            modal = qi("modal"),
+            modalTitle = qi("modalTitle"),
+            modalText = qi("modalText"),
+            data = {
+                snake: [
+                    "Snake & Ladder Game (C)",
+                    "<p>Terminal-based board game built in C to practice structs, game state logic, and randomization.</p> Built as a learning project to practice structs, board mapping, random dice generation, and basic state-based game flow"
+                ],
+                cli: [
+                    "CLI Utilities Toolkit",
+                    "<p>A collection of command-line tools focused on file processing, text analysis, and efficient I/O.</p> Created as learning exercises to better understand low-level I/O, pointers, and writing more efficient C programs."
+                ],
+                md: [
+                    "Markdown Viewer",
+                    "A lightweight Markdown viewer built with HTML, CSS, and JavaScript. Designed to render Markdown content in real time while maintaining a clean and responsive interface.<br><a class='btn primary' href='https://whois65.github.io/md-viewer' target='_blank'>See Project</a>"
+                ],
+                web: [
+                    "English Dictionary",
+                    "A simple English dictionary web application built using HTML, CSS, and JavaScript. Focused on word lookup functionality, usability, and a responsive layout. <br><a class='btn primary' href='https://whois65.github.io/projects/Dictionary.html' target='_blank'>See Project</a>"
+                ],
+                lib: [
+                    "Library Information Website – School Project",
+                    "Designed and developed a responsive library website with search, category filtering, book availability status, and dark mode using HTML, CSS, and JavaScript."
+                ]
+
+            },
+            openModal = key => {
+                modal.style.display = "flex";
+                modalTitle.innerHTML = data[key][0];
+                modalText.innerHTML = data[key][1];
+            },
+            closeModal = () => modal.style.display = "none";
+
+        const toggleBtn = document.getElementById("themeToggle");
+        const root = document.documentElement;
+
+        // cek preferensi
+        const savedTheme = localStorage.getItem("theme");
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        if (savedTheme) {
+            root.setAttribute("data-theme", savedTheme);
+        } else {
+            root.setAttribute("data-theme", systemDark ? "dark" : "light");
+        }
+
+        updateIcon();
+
+        toggleBtn.addEventListener("click", () => {
+            const current = root.getAttribute("data-theme");
+            const next = current === "dark" ? "light" : "dark";
+
+            root.setAttribute("data-theme", next);
+            localStorage.setItem("theme", next);
+            updateIcon();
+        });
+
+        function updateIcon() {
+            toggleBtn.textContent =
+                root.getAttribute("data-theme") === "dark" ? "Light mode" : "Dark mode";
+        }
+
         function toggleMenu() {
-            const nav = document.getElementById("navLinks");
+            const nav = qi("navLinks");
             nav.classList.toggle("active");
         }
 
         document.querySelectorAll(".nav-links a").forEach(link => {
             link.addEventListener("click", () => {
-                document.getElementById("navLinks").classList.remove("active");
+                qi("navLinks").classList.remove("active");
             });
         });
-
-        const modal = document.getElementById("modal");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalText = document.getElementById("modalText");
-
-        const data = {
-            snake: [
-                "Snake & Ladder Game (C)",
-                "<p>Terminal-based board game built in C to practice structs, game state logic, and randomization.</p> Built as a learning project to practice structs, board mapping, random dice generation, and basic state-based game flow"
-            ],
-            cli: [
-                "CLI Utilities Toolkit",
-                "<p>A collection of command-line tools focused on file processing, text analysis, and efficient I/O.</p> Created as learning exercises to better understand low-level I/O, pointers, and writing more efficient C programs."
-            ],
-            md: [
-                "Markdown Viewer",
-                "A lightweight Markdown viewer built with HTML, CSS, and JavaScript. Designed to render Markdown content in real time while maintaining a clean and responsive interface.<br><a class='btn primary' href='https://whois65.github.io/md-viewer' target='_blank'>See Project</a>"
-            ],
-            web: [
-                "English Dictionary",
-                "A simple English dictionary web application built using HTML, CSS, and JavaScript. Focused on word lookup functionality, usability, and a responsive layout. <br><a class='btn primary' href='https://whois65.github.io/projects/Dictionary.html' target='_blank'>See Project</a>"
-            ]
-
-        };
-
-        function openModal(key) {
-            modal.style.display = "flex";
-            modalTitle.innerHTML = data[key][0];
-            modalText.innerHTML = data[key][1];
-        }
-
-        function closeModal() {
-            modal.style.display = "none";
-        }
-
         modal.addEventListener("click", e => {
             if (e.target === modal) closeModal();
         });
 
-    </script>
+        progressList = [
+            ["C Programming", "45%"],
+            ["Memory & Pointers", "30%"],
+            ["CLI & System Tools", "35%"],
+            ["JavaScript Logic", "40%"],
+            ["Linux & Shell", "50%"]
+        ]
 
+        progressList.forEach(i => {
+            let div = document.createElement("div");
+            div.className = "progress-item";
+            div.innerHTML = `<div class="progress-label"><span>${i[0]}</span><span>${i[1]}</span></div><div class="progress-bar"><div class="progress-fill" style="--value:${i[1]}"></div></div>`;
+            document.querySelector(".progress-list").appendChild(div);
+        })
+    </script>
 </body>
 
 </html>
