@@ -4,9 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raffiqi — Student Developer</title>
-  <meta name="description" content="Student developer exploring low-level programming, system fundamentals, and problem solving.">
-  <meta name="author" content="Muhammad Raffiqi">
-  <meta name="keywords" content="C, C++, Systems Programming, Linux, JavaScript, Developer Portfolio, Muhammad Raffiqi">
+<!-- Primary Meta -->
+<meta name="title" content="Raffiqi — Student Developer">
+<meta name="description" content="Student developer exploring low-level programming, Linux internals, systems programming, and performance-conscious software development.">
+<meta name="keywords" content="Muhammad Raffiqi, Raffiqi, Student Developer, C, C++, Linux, Systems Programming, Low Level Programming, Developer Portfolio">
+<meta name="author" content="Muhammad Raffiqi">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="theme-color" content="#080b10">
+
+<!-- Open Graph / Discord / WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Raffiqi — Student Developer">
+<meta property="og:description" content="Exploring low-level programming, Linux systems, and computer science fundamentals through projects and experiments.">
+<meta property="og:url" content="https://whois65.github.io/website/aboutme">
+<meta property="og:site_name" content="Raffiqi Portfolio">
+<meta property="og:image" content="https://whois65.github.io/website/aboutme/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Raffiqi Portfolio Preview">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Raffiqi — Student Developer">
+<meta name="twitter:description" content="Student developer focused on low-level programming, Linux, and systems design.">
+<meta name="twitter:image" content="https://whois65.github.io/website/aboutme/preview.png">
+
+<!-- Mobile / Apple -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Raffiqi">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://whois65.github.io/website/aboutme">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -480,85 +514,6 @@
       line-height: 1.7;
     }
 
-    /* ── PROJECTS ── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 18px;
-    }
-
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 26px;
-      cursor: pointer;
-      transition: border-color .25s, transform .25s, background .25s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .3s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--border2);
-      background: var(--surface2);
-    }
-
-    .project-card:hover::before { transform: scaleX(1); }
-
-    .project-tag {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-dim);
-      border: 1px solid rgba(0,229,160,0.2);
-      padding: 4px 10px;
-      border-radius: 4px;
-      display: inline-block;
-      margin-bottom: 14px;
-    }
-
-    .project-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .project-desc {
-      font-size: 12.5px;
-      color: var(--text-sub);
-      line-height: 1.6;
-    }
-
-    .project-arrow {
-      position: absolute;
-      top: 26px;
-      right: 26px;
-      font-size: 18px;
-      color: var(--text-dim);
-      transition: color .2s, transform .2s;
-    }
-
-    .project-card:hover .project-arrow {
-      color: var(--accent);
-      transform: translate(2px, -2px);
-    }
-
     /* ── CONTACT ── */
     .contact-inner {
       background: var(--surface);
@@ -607,108 +562,6 @@
 
     footer span { color: var(--accent); }
 
-    /* ── MODAL ── */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(5,8,12,0.85);
-      backdrop-filter: blur(12px);
-      z-index: 2000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .25s;
-    }
-
-    .modal-overlay.open {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .modal-box {
-      background: var(--surface);
-      border: 1px solid var(--border2);
-      border-radius: var(--radius-lg);
-      width: 100%;
-      max-width: 520px;
-      overflow: hidden;
-      transform: translateY(16px) scale(0.97);
-      transition: transform .25s;
-    }
-
-    .modal-overlay.open .modal-box { transform: translateY(0) scale(1); }
-
-    .modal-top {
-      padding: 28px 28px 20px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-    }
-
-    .modal-tag {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .modal-title {
-      font-family: var(--font-display);
-      font-size: 26px;
-      letter-spacing: 2px;
-      color: var(--text);
-    }
-
-    .modal-close {
-      font-size: 20px;
-      color: var(--text-sub);
-      cursor: pointer;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      width: 32px;
-      height: 32px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: color .15s, border-color .15s;
-      line-height: 1;
-    }
-
-    .modal-close:hover { color: var(--text); border-color: var(--border2); }
-
-    .modal-body {
-      padding: 24px 28px 28px;
-      font-size: 13.5px;
-      color: var(--text-sub);
-      line-height: 1.75;
-    }
-
-    .modal-body a {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 20px;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 2px;
-      transition: opacity .15s;
-    }
-
-    .modal-body a:hover { opacity: 0.75; }
-
     /* ── SCROLL REVEAL ── */
     .reveal {
       opacity: 0;
@@ -726,7 +579,6 @@
       .hero-name { font-size: clamp(52px, 14vw, 72px); }
       .skills-grid { grid-template-columns: repeat(3, 1fr); }
       .interests-grid { grid-template-columns: 1fr 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
       .contact-inner { padding: 28px 24px; flex-direction: column; }
       section { margin-bottom: 64px; }
       .section-label h2 { font-size: 28px; }
@@ -743,7 +595,7 @@
       <a href="#skills">Skills</a>
       <a href="#interests">Interests</a>
       <a href="#focus">Focus</a>
-      <a href="#projects">Projects</a>
+      <a href="applications.html">Projects</a>
       <a href="#contact">Contact</a>
       <button class="theme-btn" id="themeBtn">Light</button>
     </nav>
@@ -758,7 +610,7 @@
     <a href="#skills" class="drawer-link">Skills</a>
     <a href="#interests" class="drawer-link">Interests</a>
     <a href="#focus" class="drawer-link">Focus</a>
-    <a href="#projects" class="drawer-link">Projects</a>
+    <a href="applications.html" class="drawer-link">Projects</a>
     <a href="#contact" class="drawer-link">Contact</a>
   </div>
 
@@ -777,7 +629,7 @@
         <strong>C, Linux, and systems design</strong>.
       </p>
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="applications.html" class="btn btn-primary">View Projects</a>
         <a href="https://github.com/whois65" target="_blank" class="btn">GitHub ↗</a>
         <a href="mailto:raffi652009@gmail.com" class="btn">Email Me</a>
       </div>
@@ -877,50 +729,10 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="reveal">
-      <div class="section-label">
-        <span class="num">05</span>
-        <h2>Projects</h2>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card" onclick="openModal('snake')">
-          <span class="project-arrow">↗</span>
-          <div class="project-tag">C / CLI</div>
-          <div class="project-title">Snake &amp; Ladder Game</div>
-          <p class="project-desc">Terminal-based board game built to practice structs and game state logic.</p>
-        </div>
-        <div class="project-card" onclick="openModal('cli')">
-          <span class="project-arrow">↗</span>
-          <div class="project-tag">C / CLI</div>
-          <div class="project-title">CLI Utilities Toolkit</div>
-          <p class="project-desc">Collection of low-level command-line tools for file processing and text analysis.</p>
-        </div>
-        <div class="project-card" onclick="openModal('md')">
-          <span class="project-arrow">↗</span>
-          <div class="project-tag">HTML · CSS · JS</div>
-          <div class="project-title">Markdown Viewer</div>
-          <p class="project-desc">Lightweight real-time Markdown renderer with a clean, responsive UI.</p>
-        </div>
-        <div class="project-card" onclick="openModal('web')">
-          <span class="project-arrow">↗</span>
-          <div class="project-tag">HTML · CSS · JS</div>
-          <div class="project-title">English Dictionary</div>
-          <p class="project-desc">Word lookup application with a responsive layout and clean interface.</p>
-        </div>
-        <div class="project-card" onclick="openModal('lib')">
-          <span class="project-arrow">↗</span>
-          <div class="project-tag">HTML · CSS · JS</div>
-          <div class="project-title">School Library Website</div>
-          <p class="project-desc">Responsive library site with search, category filtering, and dark mode.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- CONTACT -->
     <section id="contact" class="reveal">
       <div class="section-label">
-        <span class="num">06</span>
+        <span class="num">05</span>
         <h2>Contact</h2>
       </div>
       <div class="contact-inner">
@@ -929,81 +741,18 @@
           <p>Interested in my work or want to collaborate? I'm always open to conversations about programming, systems, and learning together.</p>
         </div>
         <div class="contact-btns">
-          <a href="https://github.com/whois65" target="_blank" class="btn btn-primary">GitHub ↗</a>
+          <a href="https://github.com/whois65" rel="noopener noreferrer" target="_blank" class="btn btn-primary">GitHub ↗</a>
           <a href="mailto:raffi652009@gmail.com" class="btn">Email Me</a>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
-    Built with curiosity, learning, and a lot of trial &amp; error &nbsp;·&nbsp; <span>© 2025 Raffiqi</span>
+    Built with curiosity, learning, and a lot of trial &amp; error &nbsp;·&nbsp; <span>© 2026 Raffiqi</span>
   </footer>
 
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal-box">
-      <div class="modal-top">
-        <div>
-          <div class="modal-tag" id="mTag"></div>
-          <div class="modal-title" id="mTitle"></div>
-        </div>
-        <div class="modal-close" onclick="closeModal()" aria-label="Close">×</div>
-      </div>
-      <div class="modal-body" id="mBody"></div>
-    </div>
-  </div>
-
   <script>
-    /* ── PROJECT DATA ── */
-    const PROJECTS = {
-      snake: {
-        tag: 'C / CLI',
-        title: 'Snake & Ladder Game',
-        body: `Terminal-based board game built in C as a learning exercise. Covers structs, board state mapping, random dice generation, and basic game loop flow — written entirely for the console with no external libraries.`
-      },
-      cli: {
-        tag: 'C / CLI',
-        title: 'CLI Utilities Toolkit',
-        body: `A collection of command-line tools focused on file processing, text analysis, and efficient I/O. Created to better understand low-level I/O, pointer arithmetic, and writing more efficient C programs from scratch.`
-      },
-      md: {
-        tag: 'HTML · CSS · JS',
-        title: 'Markdown Viewer',
-        body: `A lightweight Markdown viewer that renders content in real time with a clean, responsive interface. Designed to be fast, minimal, and readable on any device. <a href="https://whois65.github.io/md-viewer" target="_blank">View live project ↗</a>`
-      },
-      web: {
-        tag: 'HTML · CSS · JS',
-        title: 'English Dictionary',
-        body: `A simple English dictionary web application built using HTML, CSS, and JavaScript. Focused on word lookup functionality, usability, and a responsive layout that works well on mobile. <a href="https://whois65.github.io/projects/Dictionary.html" target="_blank">View live project ↗</a>`
-      },
-      lib: {
-        tag: 'HTML · CSS · JS',
-        title: 'School Library Website',
-        body: `Designed and developed a responsive library information website as a school project. Features include search, category filtering, book availability indicators, and a full dark mode — all built without any frameworks.`
-      }
-    };
-
-    const overlay = document.getElementById('modalOverlay');
-
-    function openModal(key) {
-      const p = PROJECTS[key];
-      document.getElementById('mTag').textContent = p.tag;
-      document.getElementById('mTitle').textContent = p.title;
-      document.getElementById('mBody').innerHTML = p.body;
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
     /* ── THEME ── */
     const root = document.documentElement;
     const themeBtn = document.getElementById('themeBtn');
