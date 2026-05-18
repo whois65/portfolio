@@ -773,6 +773,7 @@
     // ── MODAL ──
     function openModal(item) {
       const hasUrl = item.url && item.url !== '#';
+      const fileorweb = item.url.includes(".apk");
       modal.innerHTML = `
         <div class="modal-header">
           <div class="modal-icon" style="background: ${item.gradient};">
@@ -816,7 +817,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <a href="${hasUrl ? item.url : '#'}" class="modal-dl-btn${!hasUrl ? ' disabled' : ''}" target="${hasUrl ? '_blank' : '_self'}" rel="noopener">${hasUrl ? '↓ Download' : 'Coming soon'}</a>
+          <a href="${hasUrl ? item.url : '#'}" class="modal-dl-btn${!hasUrl ? ' disabled' : ''}" target="${hasUrl ? '_blank' : '_self'}" rel="noopener">${fileorweb ? "See" : hasUrl ? '↓ Download' : 'Coming soon'}</a>
           <span class="modal-date">Updated ${new Date(item['last-updates']).toLocaleDateString('en-US', {month:'short',year:'numeric'})}</span>
         </div>
       `;
