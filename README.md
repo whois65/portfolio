@@ -4,6 +4,7 @@ This is my personal portfolio website, designed and developed to showcase my ski
 The site is fully responsive, modern, and optimized for performance.
 
 ## Features
+
 - Responsive design for desktop and mobile
 - Smooth animations and transitions
 - Project showcase with descriptions and links
@@ -11,18 +12,22 @@ The site is fully responsive, modern, and optimized for performance.
 - SEO-friendly structure
 
 ## Technologies Used
+
 - **HTML5** – Structure and content
 - **CSS3** – Styling and layout
 - **JavaScript (ES6+)** – Interactivity and animations
 - **GitHub Pages** – Hosting
 
 ## Deployment
+
 This project is hosted using **GitHub Pages**.  
-You can view it here: [ Portfolio Website](https://whois65.github.io/website/aboutme)
+You can view it here: [Portfolio Website](https://whois65.github.io/website/aboutme)
 
 ## Contact
+
 If you'd like to collaborate or get in touch, you can contact me via:
-- **Email:** raffiqi226@gmail.com
+
+- **Email:** <raffiqi226@gmail.com>
 - **GitHub:** [whois65](https://github.com/whois65)
 
 ---
