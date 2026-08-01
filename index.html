@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 
@@ -42,6 +43,21 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://whois65.github.io/website/aboutme">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Muhammad Raffiqi",
+        "jobTitle": "Student Developer",
+        "description": "High school student developer exploring low-level programming, Linux internals, and systems programming.",
+        "url": "https://whois65.github.io/website/",
+        "sameAs": [
+            "https://github.com/whois65"
+        ]
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="assets/favicon.ico">
@@ -122,6 +138,13 @@
         a {
             text-decoration: none;
             color: inherit;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 4px;
         }
 
         li {
@@ -242,6 +265,8 @@
             gap: 5px;
             cursor: pointer;
             padding: 6px;
+            background: none;
+            border: none;
         }
 
         .hamburger span {
@@ -519,6 +544,42 @@
             color: var(--text-sub);
         }
 
+        /* ── HERO STATS ── */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            gap: 28px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .stat-num {
+            font-family: var(--font-display);
+            font-size: 30px;
+            color: var(--accent);
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            color: var(--text-sub);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 680px) {
+            .stat-grid {
+                grid-template-columns: repeat(2, auto);
+                gap: 20px;
+            }
+        }
+
         /* ── INTERESTS ── */
         .interests-grid {
             display: grid;
@@ -705,25 +766,30 @@
         <nav id="nav">
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
+            <a href="#achievements">Achievements</a>
             <a href="#interests">Interests</a>
+            <a href="#cp">CP</a>
             <a href="#focus">Focus</a>
             <a href="projects.html">Projects</a>
             <a href="#contact">Contact</a>
-            <button class="theme-btn" id="themeBtn">Light</button>
+            <button class="theme-btn" id="themeBtn" aria-pressed="false">Light</button>
         </nav>
-        <div class="hamburger" id="burger" aria-label="Toggle navigation">
+        <button class="hamburger" id="burger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="drawer">
             <span></span><span></span><span></span>
-        </div>
+        </button>
     </header>
 
     <!-- MOBILE DRAWER -->
     <div class="nav-drawer" id="drawer">
         <a href="#about" class="drawer-link">About</a>
         <a href="#skills" class="drawer-link">Skills</a>
+        <a href="#achievements" class="drawer-link">Achievements</a>
         <a href="#interests" class="drawer-link">Interests</a>
+        <a href="#cp" class="drawer-link">CP</a>
         <a href="#focus" class="drawer-link">Focus</a>
         <a href="projects.html" class="drawer-link">Projects</a>
         <a href="#contact" class="drawer-link">Contact</a>
+        <button class="theme-btn" id="themeBtn" aria-pressed="false">Light</button>
     </div>
 
     <main>
@@ -736,11 +802,11 @@
                 Building software, solving problems, and exploring computer science fundamentals.<span
                     class="cursor"></span>
             </div>
-            <div class="interest-card" style="margin-bottom: 20px;">
-                <strong>15+ Projects</strong> <br>
-                <strong>200+ LeetCode Problems</strong> <br>
-                <strong>4 Languages</strong> <br>
-                <strong>3 Years Learning Programming</strong> <br>
+            <div class="stat-grid">
+                <div class="stat-card"><span class="stat-num">15+</span><span class="stat-label">Projects</span></div>
+                <div class="stat-card"><span class="stat-num">200+</span><span class="stat-label">LeetCode Solved</span></div>
+                <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Languages</span></div>
+                <div class="stat-card"><span class="stat-num">3</span><span class="stat-label">Years Coding</span></div>
             </div>
 
             <p class="hero-desc">
@@ -749,9 +815,9 @@
                 <strong>C, Linux, and systems design</strong>.
             </p>
             <div class="hero-cta">
-                <a href="projects.html" class="btn btn-primary">View Projects</a>
+                <a href="https://whois65.github.io/projects" class="btn btn-primary">View Projects</a>
                 <a href="https://github.com/whois65" target="_blank" class="btn">GitHub ↗</a>
-                <a href="mailto:raffi652009@gmail.com" class="btn">Email Me</a>
+                <a href="mailto:raffiqi226@gmail.com" class="btn">Email Me</a>
             </div>
         </section>
 
@@ -840,21 +906,39 @@
                 <span class="num">03</span>
                 <h2>Achievements</h2>
             </div>
-            <div>
-                <ul>
-                    <li>Rank #1 in Grade 11</li>
-                    <li>Rank #2 in Grade 10</li>
-                    <li>JLPT N5</li>
-                    <li>Preparing for HSK 4</li>
-                    <li>Competitive Programming Participant</li>
-                </ul>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="interest-icon"><i class="ti ti-trophy"></i></div>
+                    <div class="interest-title">Rank #1, Grade 11</div>
+                    <div class="interest-sub">Top of class, current year</div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon"><i class="ti ti-trophy"></i></div>
+                    <div class="interest-title">Rank #2, Grade 10</div>
+                    <div class="interest-sub">Top of class, prior year</div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon"><i class="ti ti-language"></i></div>
+                    <div class="interest-title">JLPT N5</div>
+                    <div class="interest-sub">Japanese language proficiency</div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon"><i class="ti ti-language"></i></div>
+                    <div class="interest-title">HSK 4 (in progress)</div>
+                    <div class="interest-sub">Chinese language proficiency</div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon"><i class="ti ti-code"></i></div>
+                    <div class="interest-title">Competitive Programming</div>
+                    <div class="interest-sub">Active contest participant</div>
+                </div>
             </div>
         </section>
 
         <!-- INTERESTS -->
         <section id="interests" class="reveal">
             <div class="section-label">
-                <span class="num">03</span>
+                <span class="num">04</span>
                 <h2>Interests</h2>
             </div>
             <p style="font-size:12px;color:var(--text-sub);margin-bottom:24px;letter-spacing:.5px">
@@ -886,7 +970,7 @@
 
         <section id="cp" class="reveal">
             <div class="section-label">
-                <span class="num">04</span>
+                <span class="num">05</span>
                 <h2>Competitive Programming</h2>
             </div>
             <div>
@@ -905,7 +989,7 @@
         <!-- FOCUS -->
         <section id="focus" class="reveal">
             <div class="section-label">
-                <span class="num">05</span>
+                <span class="num">06</span>
                 <h2>Current Focus</h2>
             </div>
             <div class="focus-list" id="focus-list"></div>
@@ -914,7 +998,7 @@
         <!-- CONTACT -->
         <section id="contact" class="reveal">
             <div class="section-label">
-                <span class="num">06</span>
+                <span class="num">07</span>
                 <h2>Contact</h2>
             </div>
             <div class="contact-inner">
@@ -947,6 +1031,7 @@
         function applyTheme(t) {
             root.setAttribute('data-theme', t);
             themeBtn.textContent = t === 'dark' ? 'Light' : 'Dark';
+            themeBtn.setAttribute('aria-pressed', t === 'light');
             localStorage.setItem('theme', t);
         }
 
@@ -965,13 +1050,16 @@
         burger.addEventListener('click', () => {
             burger.classList.toggle('open');
             drawer.classList.toggle('open');
-            document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+            const isOpen = drawer.classList.contains('open');
+            burger.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
         document.querySelectorAll('.drawer-link').forEach(l => {
             l.addEventListener('click', () => {
                 burger.classList.remove('open');
                 drawer.classList.remove('open');
+                burger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             });
         });
